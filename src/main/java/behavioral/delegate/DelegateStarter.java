@@ -1,4 +1,4 @@
-package delegate;
+package behavioral.delegate;
 
 public class DelegateStarter {
     public static void main(String[] args) throws InterruptedException {

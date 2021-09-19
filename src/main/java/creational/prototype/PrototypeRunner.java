@@ -1,4 +1,4 @@
-package prototype;
+package creational.prototype;
 
 public class PrototypeRunner {
     public static void main(String[] args) {

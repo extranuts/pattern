@@ -1,4 +1,4 @@
-package delegate;
+package behavioral.delegate;
 
 public class Square implements Graphics{
     @Override
