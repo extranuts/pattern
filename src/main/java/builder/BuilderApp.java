@@ -59,7 +59,9 @@ abstract class CarBuilder {
     }
 
     abstract void buildMake();
+
     abstract void buildTransmission();
+
     abstract void buildSpeed();
 
     Car getCar() {
@@ -67,7 +69,7 @@ abstract class CarBuilder {
     }
 }
 
-class FordMondeoBuilder extends CarBuilder{
+class FordMondeoBuilder extends CarBuilder {
 
     @Override
     void buildMake() {
@@ -84,7 +86,8 @@ class FordMondeoBuilder extends CarBuilder{
         car.setMaxSpeed(200);
     }
 }
-class SubaruBuilder extends CarBuilder{
+
+class SubaruBuilder extends CarBuilder {
 
     @Override
     void buildMake() {
@@ -101,9 +104,13 @@ class SubaruBuilder extends CarBuilder{
         car.setMaxSpeed(320);
     }
 }
-class Director{
+
+class Director {
     CarBuilder builder;
-    void setBuilder(CarBuilder b) {builder = b;}
+
+    void setBuilder(CarBuilder b) {
+        builder = b;
+    }
 
     Car BuildCar() {
         builder.createCar();
