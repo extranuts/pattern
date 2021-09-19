@@ -110,7 +110,8 @@ class Director{
         builder.buildMake();
         builder.buildTransmission();
         builder.buildSpeed();
-        return builder.getCar();
+        var car = builder.getCar();
+        return car;
     }
 }
 
