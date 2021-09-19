@@ -3,7 +3,13 @@ package builder;
 public class BuilderApp {
 
     public static void main(String[] args) {
+        Car car = new CarBuilder()
+                .buildMake("Mercedes")
+                .buildTransmission(Transmission.AUTO)
+                .buildMaxSpeed(299)
+                .build();
 
+        System.out.println(car);
     }
 
 }
@@ -27,6 +33,15 @@ class Car {
 
     public void setMaxSpeed(int maxSpeed) {
         this.maxSpeed = maxSpeed;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "make='" + make + '\'' +
+                ", transmission=" + transmission +
+                ", maxSpeed=" + maxSpeed +
+                '}';
     }
 }
 
