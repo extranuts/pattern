@@ -4,16 +4,31 @@ public class FacadeRunner {
 
     public static void main(String[] args) {
 
-        var power = new Power();
+//        var power = new Power();
+//        power.on();
+//
+//        var dvd = new DVDRom();
+//        dvd.load();
+//
+//        var hdd = new HDD();
+//        hdd.copyFromDVD(dvd);
+
+        var computerFacade = new ComputerFacade();
+        computerFacade.copy();
+
+    }
+}
+
+class ComputerFacade {
+
+    Power power = new Power();
+    DVDRom dvd = new DVDRom();
+    HDD hdd = new HDD();
+
+    void copy() {
         power.on();
-
-        var dvd = new DVDRom();
         dvd.load();
-
-        var hdd = new HDD();
         hdd.copyFromDVD(dvd);
-
-
     }
 }
 
