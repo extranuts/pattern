@@ -32,8 +32,7 @@ class Human implements Copyable {
 
     @Override
     public Object copy() {
-        Human copy = new Human(age, name);
-        return copy;
+        return new Human(age, name);
     }
 
     @Override
