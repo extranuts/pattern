@@ -1,11 +1,29 @@
 package abstractFactory;
 
-import java.util.Map;
-
 public class AbstractFactoryApp {
 
     public static void main(String[] args) {
 
+        DeviceFactory factory = getFactoryByCountryCode("RU");
+        Mouse m = factory.getMouse();
+        Keyboard k = factory.getKeyboard();
+        Touchpad t = factory.getTouchpad();
+
+        m.click();
+        k.print();
+        k.println();
+        t.track(10, 40);
+    }
+
+    private static DeviceFactory getFactoryByCountryCode(String lang) {
+        switch (lang) {
+            case "RU":
+                return new RuDeviceFactory();
+            case "EN":
+                return new EnDeviceFactory();
+            default:
+                throw new RuntimeException("Unsupported Country " + lang);
+        }
     }
 }
 
@@ -70,10 +88,10 @@ class RuKeyboard implements Keyboard {
     }
 }
 
-class RuTouchpad implements Touchpad{
+class RuTouchpad implements Touchpad {
     @Override
     public void track(int deltaX, int deltaY) {
-        int a = (int) Math.sqrt(Math.pow(deltaX,2) + Math.pow(deltaY, 2));
+        int a = (int) Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
         System.out.println("Передвинулись на " + a + " пикселей");
     }
 }
@@ -114,10 +132,10 @@ class EnKeyboard implements Keyboard {
     }
 }
 
-class EnTouchpad implements Touchpad{
+class EnTouchpad implements Touchpad {
     @Override
     public void track(int deltaX, int deltaY) {
-        int a = (int) Math.sqrt(Math.pow(deltaX,2) + Math.pow(deltaY, 2));
+        int a = (int) Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
         System.out.println("Move to " + a + " pxl");
     }
 }
