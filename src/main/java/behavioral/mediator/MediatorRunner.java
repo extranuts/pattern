@@ -7,36 +7,59 @@ public class MediatorRunner {
     public static void main(String[] args) {
         TextChat chat = new TextChat();
 
-        User admin = new Admin(chat);
-        User u1 = new SimpleUser(chat);
-        User u2 = new SimpleUser(chat);
+        User admin = new Admin(chat, "Admin Adminov");
+        User u1 = new SimpleUser(chat, "Serg");
+        User u2 = new SimpleUser(chat, "Vova");
+        User u3 = new SimpleUser(chat, "Petr");
+        u2.setEnable(false);
 
         chat.setAdmin(admin);
         chat.addUser(u1);
         chat.addUser(u2);
+        chat.addUser(u3);
 
-        u1.sendMessage("Hi i'm simple user....");
+
+        u3.sendMessage("HiALL");
         admin.sendMessage("Admin joined to chat.....");
 
     }
 }
 
-interface User {
-    void sendMessage(String message);
-
-    void getMessage(String message);
-}
-
-class Admin implements User {
+abstract class User {
     Chat chat;
+    String name;
 
-    public Admin(Chat chat) {
-        this.chat = chat;
+    public boolean isEnable = true;
+
+    public boolean isEnable() {
+        return isEnable;
     }
 
-    @Override
-    public void sendMessage(String message) {
+    public void setEnable(boolean isEnable) {
+        this.isEnable = isEnable;
+    }
+
+    public User(Chat chat, String name) {
+        this.chat = chat;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    void sendMessage(String message) {
         chat.sendMessage(message, this);
+    }
+
+    abstract void getMessage(String message);
+}
+
+class Admin extends User {
+
+
+    public Admin(Chat chat, String name) {
+        super(chat, name);
     }
 
     @Override
@@ -45,21 +68,15 @@ class Admin implements User {
     }
 }
 
-class SimpleUser implements User {
-    Chat chat;
+class SimpleUser extends User {
 
-    public SimpleUser(Chat chat) {
-        this.chat = chat;
-    }
-
-    @Override
-    public void sendMessage(String message) {
-        chat.sendMessage(message, this);
+    public SimpleUser(Chat chat, String name) {
+        super(chat, name);
     }
 
     @Override
     public void getMessage(String message) {
-        System.out.println("Пользователь получает сообщение ' " + message + "'");
+        System.out.println("Пользователь  получает сообщение ' " + message + "'");
     }
 }
 
@@ -72,18 +89,35 @@ class TextChat implements Chat {
     List<User> users = new ArrayList<>();
 
     public void setAdmin(User admin) {
-        this.admin = admin;
+        if (admin instanceof Admin) {
+            this.admin = admin;
+        } else throw new RuntimeException("Access denied!");
     }
 
     public void addUser(User user) {
-        users.add(user);
+        if (admin == null) {
+            throw new RuntimeException("Chat doesn't have admin");
+        }
+        if (user instanceof SimpleUser) {
+            users.add(user);
+        } else throw new RuntimeException("Admin lol");
     }
 
     @Override
     public void sendMessage(String message, User user) {
-        for (User u : users) {
-            u.getMessage(message);
+        if (user instanceof Admin) {
+            for (User u : users) {
+                if (u != user && u.isEnable()){
+                    u.getMessage(user.getName() + ": " + message);
+                }
+            }
+        }if (user instanceof  SimpleUser) {
+            for (User u : users) {
+                if (u != user && u.isEnable())
+                    u.getMessage(user.getName() + ": " + message);
+            }
+            if (admin.isEnable())
+                admin.getMessage(user.getName() + ": " + message);
         }
-        admin.getMessage(message);
     }
 }
