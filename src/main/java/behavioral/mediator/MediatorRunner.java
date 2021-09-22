@@ -18,7 +18,6 @@ public class MediatorRunner {
         chat.addUser(u2);
         chat.addUser(u3);
 
-
         u3.sendMessage("HiALL");
         admin.sendMessage("Admin joined to chat.....");
 
