@@ -2,28 +2,54 @@ package behavioral.templateMethod;
 
 public class TMRunner {
     public static void main(String[] args) {
-        A a = new A();
-        a.method();
+        C a = new A();
+        a.templateMethod();
 
         System.out.println();
 
         var b = new B();
-        b.method();
+        b.templateMethod();
 
 
     }
 }
-class A{
-    void method(){
+
+abstract class C {
+    void templateMethod() {
         System.out.println("1");
+        different();
+        System.out.println("3");
+        different2();
+
+    }
+
+    protected abstract void different2();
+
+    protected abstract void different();
+}
+
+class A extends C {
+
+    @Override
+    protected void different2() {
+        System.out.println("--------------------");
+    }
+
+    @Override
+    protected void different() {
         System.out.println("2");
-        System.out.println("3");
     }
 }
-class B{
-    void method(){
-        System.out.println("1");
+
+class B extends C {
+
+    @Override
+    protected void different2() {
+
+    }
+
+    @Override
+    protected void different() {
         System.out.println("4");
-        System.out.println("3");
     }
 }
