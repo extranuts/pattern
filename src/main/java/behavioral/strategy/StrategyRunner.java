@@ -46,8 +46,8 @@ class BubbleSort implements Sorting {
     public void sort(int[] arr) {
         System.out.println("Bubble sort");
         System.out.println("Before : " + Arrays.toString(arr));
-        int changeCounter = 0;
-        do {
+        int changeCounter;
+        do { changeCounter = 0;
             for (int i = 0; i < arr.length - 1; i++) {
                 if (arr[i] > arr[i + 1]) {
                     int temp = arr[i];
@@ -90,13 +90,14 @@ class InsertSort implements Sorting {
         System.out.println("Before : " + Arrays.toString(arr));
         for (int barrier = 1; barrier < arr.length; barrier++) {
             int index = barrier;
-            while (index - 1 >= 0 && arr[index] < arr[index - 1]) {
+            while (index - 1>= 0 && arr[index] < arr[index - 1]) {
                 int temp = arr[index];
                 arr[index] = arr[index - 1];
                 arr[index - 1] = temp;
                 index--;
             }
         }
+
         System.out.println("After sort + " + Arrays.toString(arr));
     }
 }
