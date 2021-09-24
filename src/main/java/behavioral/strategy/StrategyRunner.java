@@ -13,11 +13,11 @@ public class StrategyRunner {
 
         int [] array1 = {9,8,7,6,5,4,3,2,1,0};
         strategyClient.setStrategy(new BubbleSort());
-        strategyClient.executeStrategy(array);
+        strategyClient.executeStrategy(array1);
 
         int [] array2 = {1,5,63,3,17,44};
         strategyClient.setStrategy(new InsertSort());
-        strategyClient.executeStrategy(array);
+        strategyClient.executeStrategy(array2);
 
     }
 }
