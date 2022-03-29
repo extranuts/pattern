@@ -3,6 +3,11 @@ package behavioral.mediator;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Позволяет уменьшить связанность множества классов между собой,
+ * благодаря перемещению этих связей в один класс-посредник.
+ * */
 public class MediatorRunner {
     public static void main(String[] args) {
         TextChat chat = new TextChat();

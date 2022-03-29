@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <name>Test</name>
+    <people>
+        <element>
+            <age>12</age>
+            <name>Ivan</name>
+        </element>
+        <element>
+            <age>14</age>
+            <name>Elena</name>
+        </element>
+        <element>
+            <age>16</age>
+            <name>Kirill</name>
+        </element>        <element>
+            <age>22</age>
+            <name>Sergey</name>
+        </element>        <element>
+            <age>10</age>
+            <name>Maksim</name>
+        </element>
+    </people>
+</root>

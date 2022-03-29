@@ -1,5 +1,11 @@
 package creational.prototype;
 
+
+/**
+ * Prototype (Прототип) - помогает создать дублированный объект с
+ * лучшей производительностью,
+ * вместо нового создается возвращаемый клон существующего объекта.
+ * */
 public class PrototypeRunner {
     public static void main(String[] args) {
 

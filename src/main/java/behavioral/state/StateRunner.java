@@ -1,5 +1,11 @@
 package behavioral.state;
 
+
+/**
+ *State (Состояние) -
+ *  объект может изменять свое поведение в зависимости от его состояния.
+ * */
+
 public class StateRunner {
     public static void main(String[] args) {
 

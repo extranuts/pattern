@@ -2,6 +2,13 @@ package creational.factory;
 
 import java.util.Date;
 
+
+/**
+ * Factory (Фабрика) - используется, когда у нас есть суперкласс
+ * с несколькими подклассами и на основе ввода,
+ * нам нужно вернуть один из подкласса.
+ *
+ * */
 public class FactoryAppRun {
     public static void main(String[] args) {
 

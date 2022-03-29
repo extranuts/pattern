@@ -1,5 +1,11 @@
 package behavioral.command;
 
+/**
+ * Command (Команда) - интерфейс команды объявляет метод
+ * для выполнения определенного действия.
+ * */
+
+
 public class CommandRunner {
     public static void main(String[] args) {
         Computer c = new Computer();

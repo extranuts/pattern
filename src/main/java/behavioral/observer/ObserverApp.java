@@ -7,6 +7,11 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Создаёт механизм подписки, позволяющий одним объектам
+ * следить и реагировать на события, происходящие в других объектах.
+ * */
 public class ObserverApp {
     public static void main(String[] args) {
         MeteoStation station = new MeteoStation();

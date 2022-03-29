@@ -2,6 +2,14 @@ package behavioral.strategy;
 
 import java.util.Arrays;
 
+/**
+ * Определяет семейство схожих алгоритмов и помещает каждый из них в собственный
+ * класс, после чего алгоритмы можно взаимозаменять прямо во
+ * время исполнения программы.
+ *
+ * */
+
+
 public class StrategyRunner {
     public static void main(String[] args) {
 

@@ -3,6 +3,12 @@ package structural.composite;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * Позволяет сгруппировать объекты в древовидную структуру,
+ * а затем работать с ними так, как будто это единичный объект.
+ * */
+
 public class CompositeRun {
     public static void main(String[] args) {
 

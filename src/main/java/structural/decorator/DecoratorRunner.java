@@ -1,5 +1,12 @@
 package structural.decorator;
 
+
+/**
+ * Позволяет динамически добавлять объектам новую функциональность,
+ * оборачивая их в полезные «обёртки».
+ * */
+
+
 public class DecoratorRunner {
     public static void main(String[] args) {
 //        PrinterInterface printer = new Printer("Hello, World");

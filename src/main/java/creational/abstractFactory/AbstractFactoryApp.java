@@ -1,5 +1,11 @@
 package creational.abstractFactory;
 
+
+/**
+ * Abstract Factory (Абстрактная фабрика) - используем супер фабрику для создания
+ * фабрики, затем используем созданную фабрику для создания объектов.
+ *
+ * */
 public class AbstractFactoryApp {
 
     public static void main(String[] args) {

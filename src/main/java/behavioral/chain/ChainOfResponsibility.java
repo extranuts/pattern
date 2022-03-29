@@ -1,5 +1,12 @@
 package behavioral.chain;
 
+/**
+ *Chain of Responsibility (Цепочка обязанностей) -
+ * позволяет избежать жесткой зависимости отправителя запроса от его получателя,
+ *  при этом запрос может быть обработан несколькими объектами.
+ *
+ * */
+
 public class ChainOfResponsibility {
 
     public static void main(String[] args) {

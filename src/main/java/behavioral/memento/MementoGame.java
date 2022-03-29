@@ -1,5 +1,12 @@
 package behavioral.memento;
 
+
+/***
+ * Позволяет делать снимки состояния объектов, не раскрывая подробностей
+ * их реализации. Затем снимки можно использовать,
+ * чтобы восстановить прошлое состояние объектов.
+ * */
+
 public class MementoGame {
     public static void main(String[] args) throws InterruptedException {
         Game game = new Game();
