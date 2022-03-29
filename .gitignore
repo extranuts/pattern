@@ -3,3 +3,5 @@
 /.idea/
 
 
+/src/main/resources/js/index.js
+/src/main/java/tasks/opencvex/Vision.java
