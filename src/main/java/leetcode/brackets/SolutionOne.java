@@ -2,7 +2,9 @@ package leetcode.brackets;
 
 
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * ** 1.(()) -true  ()) false
@@ -14,13 +16,21 @@ public class SolutionOne {
 
     public static boolean checkBrackets(String str) {
 
+        Map<Character, Character> map = new HashMap<>();
+        map.put(')', '(');
+        map.put('}', '{');
+        map.put(']', '[');
+
         Deque<Character> deque = new LinkedList<>();
+
         for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            if (ch == '(') {
-                deque.add(ch);
+
+            Character closedBracket = str.charAt(i);
+            Character openBracket = map.get(closedBracket);
+            if (openBracket == null) {
+                deque.add(closedBracket);
             } else {
-                if (deque.size() == 0 || deque.pollLast() != '(') {
+                if (deque.size() == 0 || deque.pollLast() != openBracket) {
                     return false;
                 }
             }
@@ -33,7 +43,7 @@ public class SolutionOne {
     public static void main(String[] args) {
 
 
-        boolean result = checkBrackets("((())()())");
+        boolean result = checkBrackets("({}}}{{[])");
         System.out.println(result);
 
     }
